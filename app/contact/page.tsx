@@ -1,0 +1,290 @@
+"use client"
+
+import type React from "react"
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Card, CardContent } from "@/components/ui/card"
+import { Phone, Mail, MapPin, Clock, Send, MessageSquare } from "lucide-react"
+
+export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Handle form submission
+    alert("Message sent successfully! We'll get back to you soon.")
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+    })
+  }
+
+  return (
+    <div className="flex flex-col">
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-background to-background"></div>
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+            <p className="text-xl text-gray-600 mb-8">
+              Have questions or need assistance? We're here to help you every step of the way.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {[
+              {
+                icon: <Phone className="h-6 w-6 text-primary" />,
+                title: "Phone",
+                details: ["+1 (555) 123-4567", "+1 (555) 987-6543"],
+                action: "Call us",
+              },
+              {
+                icon: <Mail className="h-6 w-6 text-primary" />,
+                title: "Email",
+                details: ["info@driveflex.com", "support@driveflex.com"],
+                action: "Email us",
+              },
+              {
+                icon: <MapPin className="h-6 w-6 text-primary" />,
+                title: "Location",
+                details: ["123 Car Avenue", "Automotive City, AC 12345"],
+                action: "Get directions",
+              },
+              {
+                icon: <Clock className="h-6 w-6 text-primary" />,
+                title: "Business Hours",
+                details: ["Mon-Fri: 9AM - 6PM", "Sat: 10AM - 4PM, Sun: Closed"],
+                action: "View hours",
+              },
+            ].map((item, index) => (
+              <Card key={index} className="border-none shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="pt-6">
+                  <div className="rounded-full bg-primary/10 w-12 h-12 flex items-center justify-center mb-4">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <div className="space-y-1 mb-4">
+                    {item.details.map((detail, idx) => (
+                      <p key={idx} className="text-gray-600">
+                        {detail}
+                      </p>
+                    ))}
+                  </div>
+                  <Button variant="link" className="p-0 h-auto text-primary">
+                    {item.action}
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form & Map */}
+      <section className="py-12 pb-32">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            <div>
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold mb-4">Send Us a Message</h2>
+                <p className="text-gray-600">
+                  Fill out the form below and our team will get back to you as soon as possible.
+                </p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name</Label>
+                  <Input id="name" name="name" value={formData.name} onChange={handleChange} required />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email Address</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Phone Number</Label>
+                    <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="subject">Subject</Label>
+                  <Select onValueChange={(value) => handleSelectChange("subject", value)} value={formData.subject}>
+                    <SelectTrigger id="subject">
+                      <SelectValue placeholder="Select a subject" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="general">General Inquiry</SelectItem>
+                      <SelectItem value="application">Application Status</SelectItem>
+                      <SelectItem value="vehicle">Vehicle Information</SelectItem>
+                      <SelectItem value="payment">Payment Questions</SelectItem>
+                      <SelectItem value="support">Technical Support</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    className="min-h-[150px]"
+                  />
+                </div>
+
+                <Button type="submit" className="w-full rounded-full">
+                  Send Message <Send className="ml-2 h-4 w-4" />
+                </Button>
+              </form>
+            </div>
+
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-3xl font-bold mb-4">Our Location</h2>
+                <p className="text-gray-600 mb-6">
+                  Visit our office to meet our team and discuss your car ownership journey in person.
+                </p>
+
+                <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden relative">
+                  {/* This would be replaced with an actual map component in production */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <p className="text-gray-500">Interactive Map Would Be Here</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-primary/5 p-6 rounded-lg">
+                <div className="flex items-center gap-3 mb-4">
+                  <MessageSquare className="h-6 w-6 text-primary" />
+                  <h3 className="text-xl font-semibold">Live Chat</h3>
+                </div>
+                <p className="text-gray-600 mb-4">
+                  Need immediate assistance? Chat with our customer service team in real-time.
+                </p>
+                <Button className="rounded-full">Start Live Chat</Button>
+              </div>
+
+              <div className="bg-primary/5 p-6 rounded-lg">
+                <h3 className="text-xl font-semibold mb-4">Connect With Us</h3>
+                <p className="text-gray-600 mb-4">Follow us on social media for updates, special offers, and more.</p>
+                <div className="flex space-x-4">
+                  <Button variant="outline" size="icon" className="rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-5 w-5"
+                    >
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                  </Button>
+                  <Button variant="outline" size="icon" className="rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-5 w-5"
+                    >
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                  </Button>
+                  <Button variant="outline" size="icon" className="rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-5 w-5"
+                    >
+                      <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                    </svg>
+                  </Button>
+                  <Button variant="outline" size="icon" className="rounded-full">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-5 w-5"
+                    >
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                      <rect x="2" y="9" width="4" height="12"></rect>
+                      <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
