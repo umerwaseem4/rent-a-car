@@ -1,8 +1,15 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, CheckCircle, Star, Award, Users, TrendingUp } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  ArrowRight,
+  CheckCircle,
+  Star,
+  Award,
+  Users,
+  TrendingUp,
+} from "lucide-react";
 
 export default function About() {
   return (
@@ -14,17 +21,22 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                About <span className="text-primary">DriveFlex</span>
+                About <span className="text-primary">G5S</span>
               </h1>
               <p className="text-xl text-gray-600 max-w-lg">
-                We're on a mission to make car ownership accessible to everyone through our innovative rent-to-own
-                program.
+                We're on a mission to make car ownership accessible to everyone
+                through our innovative rent-to-own program.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button asChild size="lg" className="rounded-full text-base">
                   <Link href="/apply">Get Started</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-full text-base">
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="rounded-full text-base"
+                >
                   <Link href="/contact">
                     Contact Us <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -52,7 +64,9 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Story</h2>
-            <p className="text-xl text-gray-600">How we're changing the car ownership landscape</p>
+            <p className="text-xl text-gray-600">
+              How we're changing the car ownership landscape
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -71,17 +85,20 @@ export default function About() {
             <div className="space-y-6 order-1 lg:order-2">
               <h3 className="text-2xl font-bold">Founded on a Simple Belief</h3>
               <p className="text-lg text-gray-600">
-                DriveFlex was founded in 2018 with a simple yet powerful belief: everyone deserves access to reliable
-                transportation, regardless of their credit history or financial background.
+                G5S was founded in 2018 with a simple yet powerful belief:
+                everyone deserves access to reliable transportation, regardless
+                of their credit history or financial background.
               </p>
               <p className="text-lg text-gray-600">
-                Our founders experienced firsthand the challenges many face when trying to purchase a vehicle through
-                traditional financing. They recognized that the existing system left many hardworking individuals
-                without options.
+                Our founders experienced firsthand the challenges many face when
+                trying to purchase a vehicle through traditional financing. They
+                recognized that the existing system left many hardworking
+                individuals without options.
               </p>
               <p className="text-lg text-gray-600">
-                This realization sparked the creation of our innovative rent-to-own program, designed to provide a
-                flexible path to car ownership for those underserved by conventional auto financing.
+                This realization sparked the creation of our innovative
+                rent-to-own program, designed to provide a flexible path to car
+                ownership for those underserved by conventional auto financing.
               </p>
             </div>
           </div>
@@ -90,18 +107,21 @@ export default function About() {
             <div className="space-y-6">
               <h3 className="text-2xl font-bold">Our Growth & Vision</h3>
               <p className="text-lg text-gray-600">
-                What began as a small operation has grown into a trusted solution for thousands of clients across the
-                region. Our success is built on transparency, flexibility, and a genuine commitment to our customers'
-                success.
+                What began as a small operation has grown into a trusted
+                solution for thousands of clients across the region. Our success
+                is built on transparency, flexibility, and a genuine commitment
+                to our customers' success.
               </p>
               <p className="text-lg text-gray-600">
-                Today, we continue to innovate and expand our services, always guided by our core mission: to transform
-                the car buying experience and make vehicle ownership accessible to everyone.
+                Today, we continue to innovate and expand our services, always
+                guided by our core mission: to transform the car buying
+                experience and make vehicle ownership accessible to everyone.
               </p>
               <p className="text-lg text-gray-600">
-                Our vision for the future includes expanding to new markets, enhancing our digital platform, and
-                developing even more flexible financing solutions to meet the evolving needs of our diverse customer
-                base.
+                Our vision for the future includes expanding to new markets,
+                enhancing our digital platform, and developing even more
+                flexible financing solutions to meet the evolving needs of our
+                diverse customer base.
               </p>
             </div>
 
@@ -124,8 +144,12 @@ export default function About() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Core Values</h2>
-            <p className="text-xl text-gray-600">The principles that guide everything we do</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our Core Values
+            </h2>
+            <p className="text-xl text-gray-600">
+              The principles that guide everything we do
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -145,15 +169,20 @@ export default function About() {
               {
                 icon: <Users className="h-10 w-10 text-primary" />,
                 title: "Customer Success",
-                description: "We measure our success by the success of our customers in achieving vehicle ownership.",
+                description:
+                  "We measure our success by the success of our customers in achieving vehicle ownership.",
               },
               {
                 icon: <Award className="h-10 w-10 text-primary" />,
                 title: "Integrity",
-                description: "We operate with honesty and ethical standards in every interaction and decision.",
+                description:
+                  "We operate with honesty and ethical standards in every interaction and decision.",
               },
             ].map((value, index) => (
-              <Card key={index} className="border-none shadow-md hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="border-none shadow-md hover:shadow-lg transition-shadow"
+              >
                 <CardContent className="pt-6">
                   <div className="rounded-full bg-primary/10 w-16 h-16 flex items-center justify-center mb-4">
                     {value.icon}
@@ -172,7 +201,9 @@ export default function About() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Impact</h2>
-            <p className="text-xl text-gray-600">The difference we're making in our community</p>
+            <p className="text-xl text-gray-600">
+              The difference we're making in our community
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -180,21 +211,26 @@ export default function About() {
               {
                 number: "5,000+",
                 label: "Satisfied Customers",
-                description: "Individuals and families who have successfully obtained vehicles through our program.",
+                description:
+                  "Individuals and families who have successfully obtained vehicles through our program.",
               },
               {
                 number: "85%",
                 label: "Completion Rate",
-                description: "Clients who successfully complete their payment terms and achieve full ownership.",
+                description:
+                  "Clients who successfully complete their payment terms and achieve full ownership.",
               },
               {
                 number: "$12M+",
                 label: "Community Investment",
-                description: "Total value of vehicles we've helped our customers acquire since our founding.",
+                description:
+                  "Total value of vehicles we've helped our customers acquire since our founding.",
               },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{stat.number}</div>
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+                  {stat.number}
+                </div>
                 <h3 className="text-xl font-semibold mb-3">{stat.label}</h3>
                 <p className="text-gray-600">{stat.description}</p>
               </div>
@@ -207,8 +243,8 @@ export default function About() {
               <h3 className="text-2xl font-bold">Community Initiatives</h3>
             </div>
             <p className="text-lg text-gray-600 mb-6">
-              Beyond our core business, we're committed to giving back to the communities we serve through various
-              initiatives:
+              Beyond our core business, we're committed to giving back to the
+              communities we serve through various initiatives:
             </p>
             <ul className="space-y-4">
               {[
@@ -231,8 +267,12 @@ export default function About() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Meet Our Leadership Team</h2>
-            <p className="text-xl text-gray-600">The experienced professionals guiding our mission</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Meet Our Leadership Team
+            </h2>
+            <p className="text-xl text-gray-600">
+              The experienced professionals guiding our mission
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -240,7 +280,7 @@ export default function About() {
               {
                 name: "Alex Johnson",
                 title: "Founder & CEO",
-                bio: "With over 15 years in automotive financing, Alex founded DriveFlex to create more inclusive vehicle ownership opportunities.",
+                bio: "With over 15 years in automotive financing, Alex founded G5S to create more inclusive vehicle ownership opportunities.",
                 image: "/placeholder.svg?height=400&width=400",
               },
               {
@@ -274,13 +314,23 @@ export default function About() {
                 image: "/placeholder.svg?height=400&width=400",
               },
             ].map((member, index) => (
-              <Card key={index} className="border-none shadow-md overflow-hidden">
+              <Card
+                key={index}
+                className="border-none shadow-md overflow-hidden"
+              >
                 <div className="aspect-square relative">
-                  <Image src={member.image || "/placeholder.svg"} alt={member.name} fill className="object-cover" />
+                  <Image
+                    src={member.image || "/placeholder.svg"}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <CardContent className="pt-6">
                   <h3 className="text-xl font-semibold mb-1">{member.name}</h3>
-                  <p className="text-primary font-medium mb-3">{member.title}</p>
+                  <p className="text-primary font-medium mb-3">
+                    {member.title}
+                  </p>
                   <p className="text-gray-600">{member.bio}</p>
                 </CardContent>
               </Card>
@@ -293,15 +343,23 @@ export default function About() {
       <section className="py-20 bg-primary/5">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Join Our Community?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Join Our Community?
+            </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Take the first step toward vehicle ownership with our flexible rent-to-own program.
+              Take the first step toward vehicle ownership with our flexible
+              rent-to-own program.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="rounded-full text-base">
                 <Link href="/apply">Apply Now</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full text-base">
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-full text-base"
+              >
                 <Link href="/contact">Contact Us</Link>
               </Button>
             </div>
@@ -309,5 +367,5 @@ export default function About() {
         </div>
       </section>
     </div>
-  )
+  );
 }

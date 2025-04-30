@@ -53,7 +53,7 @@ export default function Home() {
                 </Link>
                 <Link href="/how-it-works">
                   <CustomButton size="lg" variant="outline" shape="pill">
-                    How It Works <ArrowRight className="ml-2 h-4 w-4" />
+                    How It Works
                   </CustomButton>
                 </Link>
               </div>
@@ -72,7 +72,7 @@ export default function Home() {
               <div className="absolute -inset-4 rounded-2xl bg-gradient-to-r from-primary/20 via-secondary/10 to-accent/5 -z-10"></div>
               <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-xl transition-transform duration-300 hover:scale-[1.02]">
                 <Image
-                  src="/placeholder.svg"
+                  src="/car_renting_hero.jpg"
                   alt="Luxury car"
                   fill
                   className="object-cover"
@@ -219,8 +219,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link href="/how-it-works">
               <CustomButton size="lg" shape="pill">
-                Learn More About Our Process{" "}
-                <ArrowRight className="ml-2 h-4 w-4" />
+                Learn More About Our Process
               </CustomButton>
             </Link>
           </div>

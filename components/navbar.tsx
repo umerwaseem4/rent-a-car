@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { CustomButton } from "@/components/custom-button"
-import { cn } from "@/lib/utils"
-import { Car, Menu, X } from "lucide-react"
-import { useMobile } from "@/hooks/use-mobile"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { CustomButton } from "@/components/custom-button";
+import { cn } from "@/lib/utils";
+import { Car, Menu, X } from "lucide-react";
+import { useMobile } from "@/hooks/use-mobile";
 
 const routes = [
   { href: "/", label: "Home" },
@@ -15,27 +15,29 @@ const routes = [
   { href: "/faqs", label: "FAQs" },
   { href: "/contact", label: "Contact" },
   { href: "/about", label: "About Us" },
-]
+];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const isMobile = useMobile()
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isMobile = useMobile();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
+      setIsScrolled(window.scrollY > 10);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-500",
-        isScrolled ? "bg-white/95 backdrop-blur-sm py-2 shadow-md" : "bg-transparent py-4",
+        isScrolled
+          ? "bg-white/95 backdrop-blur-sm py-2 shadow-md"
+          : "bg-transparent py-4"
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
@@ -47,13 +49,22 @@ export default function Navbar() {
             </div>
           </div>
           <span className="font-bold text-2xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            DriveFlex
+            G5S
           </span>
         </Link>
 
         {isMobile ? (
-          <CustomButton variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <CustomButton
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </CustomButton>
         ) : (
           <nav className="flex items-center gap-6">
@@ -93,5 +104,5 @@ export default function Navbar() {
         </div>
       )}
     </header>
-  )
+  );
 }

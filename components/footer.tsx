@@ -1,7 +1,15 @@
-import Link from "next/link"
-import { CustomButton } from "@/components/custom-button"
-import { Input } from "@/components/ui/input"
-import { Car, Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react"
+import Link from "next/link";
+import { CustomButton } from "@/components/custom-button";
+import { Input } from "@/components/ui/input";
+import {
+  Car,
+  Facebook,
+  Instagram,
+  Twitter,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
 
 export default function Footer() {
   return (
@@ -21,11 +29,12 @@ export default function Footer() {
                 </div>
               </div>
               <span className="font-bold text-xl bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                DriveFlex
+                G5S
               </span>
             </div>
             <p className="text-gray-600 max-w-xs">
-              Making car ownership accessible through flexible rent-to-own solutions tailored to your needs.
+              Making car ownership accessible through flexible rent-to-own
+              solutions tailored to your needs.
             </p>
             <div className="flex space-x-4">
               {[Facebook, Instagram, Twitter].map((Icon, i) => (
@@ -58,7 +67,10 @@ export default function Footer() {
                 { href: "/about", label: "About Us" },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-gray-600 hover:text-primary transition-colors relative group">
+                  <Link
+                    href={link.href}
+                    className="text-gray-600 hover:text-primary transition-colors relative group"
+                  >
                     <span className="absolute -left-4 top-1/2 -translate-y-1/2 w-0 h-0.5 bg-primary group-hover:w-3 transition-all duration-300"></span>
                     {link.label}
                   </Link>
@@ -74,8 +86,14 @@ export default function Footer() {
             </h3>
             <ul className="space-y-4">
               {[
-                { icon: <Phone className="h-5 w-5 text-primary" />, text: "+1 (555) 123-4567" },
-                { icon: <Mail className="h-5 w-5 text-primary" />, text: "info@driveflex.com" },
+                {
+                  icon: <Phone className="h-5 w-5 text-primary" />,
+                  text: "+1 (555) 123-4567",
+                },
+                {
+                  icon: <Mail className="h-5 w-5 text-primary" />,
+                  text: "info@G5S.com",
+                },
                 {
                   icon: <MapPin className="h-5 w-5 text-primary" />,
                   text: "123 Car Avenue, Automotive City, AC 12345",
@@ -96,14 +114,20 @@ export default function Footer() {
               Newsletter
               <span className="absolute -bottom-1 left-0 w-1/2 h-1 bg-gradient-to-r from-primary to-primary/0 rounded-full"></span>
             </h3>
-            <p className="text-gray-600">Subscribe to get updates on new cars and special offers.</p>
+            <p className="text-gray-600">
+              Subscribe to get updates on new cars and special offers.
+            </p>
             <div className="relative">
               <Input
                 type="email"
                 placeholder="Your email"
                 className="rounded-full bg-white pr-24 border-gray-200 focus:border-primary h-12"
               />
-              <CustomButton size="sm" shape="pill" className="absolute right-1 top-1 h-10">
+              <CustomButton
+                size="sm"
+                shape="pill"
+                className="absolute right-1 top-1 h-10"
+              >
                 Subscribe
               </CustomButton>
             </div>
@@ -111,9 +135,9 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-200 mt-16 pt-8 text-center text-gray-500 text-sm">
-          <p>© {new Date().getFullYear()} DriveFlex. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} G5S. All rights reserved.</p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
